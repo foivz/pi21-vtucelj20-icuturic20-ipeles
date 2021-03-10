@@ -1,35 +1,30 @@
-# Inicijalne upute za prijavu projekta iz Programskog inženjerstva
 
-Poštovane kolegice i kolege, 
-
-čestitamo vam jer ste uspješno prijavili svoj projektni tim na kolegiju Programsko inženjerstvo, te je za vas automatski kreiran repozitorij koji ćete koristiti za verzioniranje vašega koda, ali i za pisanje dokumentacije.
-
-Ovaj dokument (README.md) predstavlja **osobnu iskaznicu vašeg projekta**. Vaš prvi zadatak, ukoliko niste odabrali da želite raditi na projektu sa nastavnicima ili u sklopu WBL-a je **prijaviti vlastiti projektni prijedlog** na način da ćete prijavu vašeg projekta, sukladno uputama danim u ovom tekstu, napisati upravo u ovaj dokument, umjesto ovoga teksta.
-
-Za upute o sintaksi koju možete koristiti u ovom dokumentu i kod pisanje vaše projektne dokumentacije pogledajte [ovaj link](https://guides.github.com/features/mastering-markdown/).
-
-Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra raditi na ovom projektu. A sada, vrijeme je da prijavite vaš projekt. Za prijavu vašeg projektnog prijedloga molimo vas koristite **predložak** koji je naveden u nastavku, a započnite tako da kliknete na *olovku* u desnom gornjem kutu ovoga dokumenta :) 
-
-# Naziv projekta
-(u redak iznad navedite kratki proizvoljni naziv projekta prikladan akademskoj zajednici, a ovaj tekst obrišite)
+# Kviz za provjeru znanja
 
 ## Projektni tim
 
 Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime
 ------------  | ------------------- | ----- | ---------------------
-Ime i prezime | mojaadresa@foi.hr | 000000000 | githubuser
-Ime i prezime | ... | ... | ...
+Valentina Tucelj | vtucelj20@foi.hr | 1191226283 | vtucelj20
+Ivona Čuturić | icuturic20@foi.hr | 0162030492 | Ivona1987
+Irena Peleš | ipeles@foi.hr | 0016133031 | irensi
 
 ## Opis domene
-Umjesto ovih uputa opišite domenu ili problem koji pokrivate vašim  projektom. Domena može biti proizvoljna, ali obratite pozornost da sukladno ishodima učenja, domena omogući primjenu zahtijevanih koncepata kako je to navedeno u sljedećem poglavlju. Priložite odgovarajuće skice gdje je to prikladno.
+Učiteljima viših razreda osnovnih škola od velike bi pomoći bila aplikacija u koju bi sami unosili pitanja za pojedine cjeline nekog predmeta u jednom od razreda (5. – 8. razred) koja bi potom učenici rješavali kao kviz za provjeru znanja. Učenicima bi se pamtio svaki pokušaj rješavanja, ostvaren rezultat i dani odgovori. Učitelj/moderator bi mogao dodavati nova pitanja i nove cjeline te bi imao pregled statistika za pojedinog učenika ili za cijeli razred. Pitanja bi bila tipa točan samo jedan odgovor od 4 ponuđena. 
 
 ## Specifikacija projekta
-Umjesto ovih uputa opišite zahtjeve za funkcionalnošću programskog proizvoda. Pobrojite osnovne funkcionalnosti i za svaku naznačite ime odgovornog člana tima. Opišite buduću arhitekturu programskog proizvoda. Obratite pozornost da bi arhitektura trebala biti višeslojna s odvojenom (dislociranom) bazom podatka. Također uzmite u obzir da bi svaki član tima treba biti odgovorana za otprilike 3 funkcionalnosti, te da bi opterećenje članova tima trebalo biti ujednačeno. Priložite odgovarajuće dijagrame i skice gdje je to prikladno. Funkcionalnosti sustava bobrojite u tablici ispod koristeći predložak koji slijedi:
 
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
-F01 | Login | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | Zlatko Stapić
-F02 | Pregled dnevnika | .... | ...
+F01 | Prijava | Kod samog ulaska u aplikaciju potrebno je prijavit se svojim korisnički imenom i lozinkom. Aplikacija sam prepoznaje da li se radi o učeniku, učitelju/moderatoru ili admina. | Ivona Čuturić
+F02 | Odabir razreda, predmeta i cjeline za rješavanje kviza | Učeniku se otvara sučelje za odabir razreda, predmeta iz tog razreda i cjeline tog predmeta. Po završetku odabira učenik može krenuti s rješavanjem kviza. | Ivona Čuturić
+F03 | Rješavanje kviza | Otvara se pitanje po pitanje na kojima je potrebno odabrati jedan točan odgovor od 4 ponuđena. Svako pitanje nosi 1 bod ako je točno odgovoreno ili 0 ako je netočno. | Valentina Tucelj
+F04 | Dodavanje/brisanje učenika | Moderator ima mogućnost dodavanja novih učenika, on im dodjeljuje korisničko ime i lozinku. | Valentina Tucelj
+F05 | Dodavanje novih pitanja | Moderator ima mogućnost dodavanja nove cjeline  za pojedini predmet nekog razreda te potom i novih pitanja i odgovora. Isto tako može i samo odabrati već postojeću cjelinu i dodati nova pitanja i odgovore. | Irena Peleš
+F06 | Pregled pitanja i odgovora uz mogućnost brisanja | Moderator može pogledati sva pitanja za pojedinu cjelinu (zajedno sa ponuđenim odgovorima i točnim odgovorima) te po potrebi može izbrisati ili izmijeniti neko pitanje ukoliko je krivo, isto tako i odgovore. | Valentina Tucelj
+F07 | Dodavanje/brisanje moderatora | Admin ima mogućnost dodavanja ili brisanja učitelja/moderatora. | Irena Peleš
+F08 | Pregled statistike | Moderator ima uvid u uspjeh pojedinog učenika ili cijelog razreda za neki cjelinu. | Ivona Čuturić
+F09 | Prijava krivog pitanja | Učenik na svakom pitanju ima mogućnost prijave krivo postavljenog pitanja ili krivo ponuđenih odgovora. | Irena Peleš
 
 ## Tehnologije i oprema
-Umjesto ovih uputa jasno popišite sve tehnologije, alate i opremu koju ćete koristiti pri implementaciji vašeg rješenja. Ne zaboravite planirati korištenje tehnologija u aktivnostima kao što su projektni menadžment ili priprema dokumentacije. Tehnologije koje ćete koristiti bi trebale biti javno dostupne, a ako ih ne budemo obrađivali na vježbama u vašoj dokumentaciji ćete morati navesti način preuzimanja, instaliranja i korištenja onih tehnologija koje su neopbodne kako bi se vaš programski proizvod preveo i pokrenuo. Pazite da svi alati koje ćete koristiti moraju imati odgovarajuću licencu.
+.NET(Visual Studio), Word, MySQL, Draw.io, GitHub, GitHub Classroom, Visual Paradigm
