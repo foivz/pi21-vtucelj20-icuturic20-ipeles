@@ -7,20 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projekt.Enitities
+namespace Projekt.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class izabrao
+    public partial class dan_odgovor
     {
         public int korisnik_id { get; set; }
-        public int ispit_id { get; set; }
-        public System.DateTime datum_vrijeme_od { get; set; }
-        public Nullable<System.DateTime> datum_vrijeme_do { get; set; }
-        public int rezultat { get; set; }
+        public int ponudeni_odgovor_id { get; set; }
+        public System.DateTime datum_vrijeme { get; set; }
     
-        public virtual ispiti ispiti { get; set; }
-        public virtual korisnici korisnici { get; set; }
+        public virtual korisnik korisnik { get; set; }
+        public virtual ponudeni_odgovor ponudeni_odgovor { get; set; }
     }
 }

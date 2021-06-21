@@ -63,9 +63,29 @@ namespace Projekt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap a3d6c0c54caa8b169a8928c33b4c1f4d {
+            get {
+                object obj = ResourceManager.GetObject("a3d6c0c54caa8b169a8928c33b4c1f4d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kvizpozadina {
             get {
                 object obj = ResourceManager.GetObject("kvizpozadina", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prijava_background {
+            get {
+                object obj = ResourceManager.GetObject("prijava_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

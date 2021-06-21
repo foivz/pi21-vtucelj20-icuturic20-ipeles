@@ -7,26 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projekt.Enitities
+namespace Projekt.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ponudeni_odgovori
+    public partial class skola
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ponudeni_odgovori()
+        public skola()
         {
-            this.dani_odgovori = new HashSet<dani_odgovori>();
+            this.razred = new HashSet<razred>();
         }
     
-        public int ponudeni_odgovor_id { get; set; }
-        public string tekst_odgovora { get; set; }
-        public byte tocan { get; set; }
-        public int pitanje_id { get; set; }
+        public int skola_id { get; set; }
+        public string naziv_skole { get; set; }
+        public string adresa_skole { get; set; }
+        public int zaduzen_korisnik_admin { get; set; }
     
+        public virtual korisnik korisnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<dani_odgovori> dani_odgovori { get; set; }
-        public virtual pitanja pitanja { get; set; }
+        public virtual ICollection<razred> razred { get; set; }
     }
 }

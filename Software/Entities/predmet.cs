@@ -7,27 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projekt.Enitities
+namespace Projekt.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class cjeline
+    public partial class predmet
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public cjeline()
+        public predmet()
         {
-            this.ispitis = new HashSet<ispiti>();
+            this.cjelina = new HashSet<cjelina>();
+            this.zaduzen_za = new HashSet<zaduzen_za>();
+            this.razred = new HashSet<razred>();
         }
     
-        public int cjelina_id { get; set; }
-        public string naziv_cjeline { get; set; }
         public int predmet_id { get; set; }
-        public int razred_id { get; set; }
+        public string naziv_predmeta { get; set; }
     
-        public virtual predmeti predmeti { get; set; }
-        public virtual razredi razredi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ispiti> ispitis { get; set; }
+        public virtual ICollection<cjelina> cjelina { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<zaduzen_za> zaduzen_za { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<razred> razred { get; set; }
     }
 }
