@@ -7,23 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projekt.Enitities
+namespace Projekt.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tipovi_korisnika
+    public partial class tip_korisnika
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tipovi_korisnika()
+        public tip_korisnika()
         {
-            this.korisnicis = new HashSet<korisnici>();
+            this.korisnik = new HashSet<korisnik>();
         }
     
         public int tip_id { get; set; }
         public string naziv_tipa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<korisnici> korisnicis { get; set; }
+        public virtual ICollection<korisnik> korisnik { get; set; }
     }
 }

@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b53402c0d681424eacf4054c68c7a156" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.cjeline" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.dani_odgovori" Width="1.5" PointX="15" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ispiti" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+      <Diagram DiagramId="6b9fba413373439f9be0ec1f9eecac3e" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.cjelina" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.dan_odgovor" Width="1.5" PointX="15" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ispit" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.izabrao" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.korisnici" Width="1.5" PointX="11.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.pitanja" Width="1.5" PointX="10.5" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ponudeni_odgovori" Width="1.5" PointX="12.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.predmeti" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.razredi" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.skole" Width="1.5" PointX="13.5" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.tipovi_korisnika" Width="1.5" PointX="9" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.korisnik" Width="1.5" PointX="11.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.pitanje" Width="1.5" PointX="10.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ponudeni_odgovor" Width="1.5" PointX="12.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.predmet" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.razred" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.skola" Width="1.5" PointX="13.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tip_korisnika" Width="1.5" PointX="9" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.zaduzen_za" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_cjeline_predmeti" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_cjeline_razredi" ManuallyRouted="false" />

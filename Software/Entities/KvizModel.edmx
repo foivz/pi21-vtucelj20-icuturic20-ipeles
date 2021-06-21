@@ -451,7 +451,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="cjeline">
+        <EntityType Name="cjelina">
           <Key>
             <PropertyRef Name="cjelina_id" />
           </Key>
@@ -459,11 +459,11 @@
           <Property Name="naziv_cjeline" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="predmet_id" Type="Int32" Nullable="false" />
           <Property Name="razred_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="predmeti" Relationship="Self.FK_cjeline_predmeti" FromRole="cjeline" ToRole="predmeti" />
-          <NavigationProperty Name="razredi" Relationship="Self.FK_cjeline_razredi" FromRole="cjeline" ToRole="razredi" />
-          <NavigationProperty Name="ispitis" Relationship="Self.FK_ispiti_cjeline" FromRole="cjeline" ToRole="ispiti" />
+          <NavigationProperty Name="predmet" Relationship="Self.FK_cjeline_predmeti" FromRole="cjeline" ToRole="predmeti" />
+          <NavigationProperty Name="razred" Relationship="Self.FK_cjeline_razredi" FromRole="cjeline" ToRole="razredi" />
+          <NavigationProperty Name="ispit" Relationship="Self.FK_ispiti_cjeline" FromRole="cjeline" ToRole="ispiti" />
         </EntityType>
-        <EntityType Name="dani_odgovori">
+        <EntityType Name="dan_odgovor">
           <Key>
             <PropertyRef Name="korisnik_id" />
             <PropertyRef Name="ponudeni_odgovor_id" />
@@ -472,19 +472,19 @@
           <Property Name="korisnik_id" Type="Int32" Nullable="false" />
           <Property Name="ponudeni_odgovor_id" Type="Int32" Nullable="false" />
           <Property Name="datum_vrijeme" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="korisnici" Relationship="Self.FK_dani_odgovori_korisnici" FromRole="dani_odgovori" ToRole="korisnici" />
-          <NavigationProperty Name="ponudeni_odgovori" Relationship="Self.FK_dani_odgovori_ponudeni_odgovori" FromRole="dani_odgovori" ToRole="ponudeni_odgovori" />
+          <NavigationProperty Name="korisnik" Relationship="Self.FK_dani_odgovori_korisnici" FromRole="dani_odgovori" ToRole="korisnici" />
+          <NavigationProperty Name="ponudeni_odgovor" Relationship="Self.FK_dani_odgovori_ponudeni_odgovori" FromRole="dani_odgovori" ToRole="ponudeni_odgovori" />
         </EntityType>
-        <EntityType Name="ispiti">
+        <EntityType Name="ispit">
           <Key>
             <PropertyRef Name="ispit_id" />
           </Key>
           <Property Name="ispit_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naziv_ispita" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cjelina_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="cjeline" Relationship="Self.FK_ispiti_cjeline" FromRole="ispiti" ToRole="cjeline" />
-          <NavigationProperty Name="izabraos" Relationship="Self.FK_izabrao_ispiti" FromRole="ispiti" ToRole="izabrao" />
-          <NavigationProperty Name="pitanjas" Relationship="Self.FK_pitanja_ispiti" FromRole="ispiti" ToRole="pitanja" />
+          <NavigationProperty Name="cjelina" Relationship="Self.FK_ispiti_cjeline" FromRole="ispiti" ToRole="cjeline" />
+          <NavigationProperty Name="izabrao" Relationship="Self.FK_izabrao_ispiti" FromRole="ispiti" ToRole="izabrao" />
+          <NavigationProperty Name="pitanje" Relationship="Self.FK_pitanja_ispiti" FromRole="ispiti" ToRole="pitanja" />
         </EntityType>
         <EntityType Name="izabrao">
           <Key>
@@ -497,10 +497,10 @@
           <Property Name="datum_vrijeme_od" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="datum_vrijeme_do" Type="DateTime" Precision="3" />
           <Property Name="rezultat" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ispiti" Relationship="Self.FK_izabrao_ispiti" FromRole="izabrao" ToRole="ispiti" />
-          <NavigationProperty Name="korisnici" Relationship="Self.FK_izabrao_korisnici" FromRole="izabrao" ToRole="korisnici" />
+          <NavigationProperty Name="ispit" Relationship="Self.FK_izabrao_ispiti" FromRole="izabrao" ToRole="ispiti" />
+          <NavigationProperty Name="korisnik" Relationship="Self.FK_izabrao_korisnici" FromRole="izabrao" ToRole="korisnici" />
         </EntityType>
-        <EntityType Name="korisnici">
+        <EntityType Name="korisnik">
           <Key>
             <PropertyRef Name="korisnik_id" />
           </Key>
@@ -515,15 +515,15 @@
           <Property Name="status" Type="Byte" Nullable="false" />
           <Property Name="tip_id" Type="Int32" Nullable="false" />
           <Property Name="razred_id" Type="Int32" />
-          <NavigationProperty Name="dani_odgovori" Relationship="Self.FK_dani_odgovori_korisnici" FromRole="korisnici" ToRole="dani_odgovori" />
-          <NavigationProperty Name="izabraos" Relationship="Self.FK_izabrao_korisnici" FromRole="korisnici" ToRole="izabrao" />
-          <NavigationProperty Name="razredi" Relationship="Self.FK_korisnici_razredi" FromRole="korisnici" ToRole="razredi" />
-          <NavigationProperty Name="tipovi_korisnika" Relationship="Self.FK_korisnici_tipovi_korisnika" FromRole="korisnici" ToRole="tipovi_korisnika" />
-          <NavigationProperty Name="pitanjas" Relationship="Self.FK_pitanja_korisnici" FromRole="korisnici" ToRole="pitanja" />
-          <NavigationProperty Name="skoles" Relationship="Self.FK_skole_korisnici" FromRole="korisnici" ToRole="skole" />
+          <NavigationProperty Name="dan_odgovor" Relationship="Self.FK_dani_odgovori_korisnici" FromRole="korisnici" ToRole="dani_odgovori" />
+          <NavigationProperty Name="izabrao" Relationship="Self.FK_izabrao_korisnici" FromRole="korisnici" ToRole="izabrao" />
+          <NavigationProperty Name="razred" Relationship="Self.FK_korisnici_razredi" FromRole="korisnici" ToRole="razredi" />
+          <NavigationProperty Name="tip_korisnika" Relationship="Self.FK_korisnici_tipovi_korisnika" FromRole="korisnici" ToRole="tipovi_korisnika" />
+          <NavigationProperty Name="pitanje" Relationship="Self.FK_pitanja_korisnici" FromRole="korisnici" ToRole="pitanja" />
+          <NavigationProperty Name="skola" Relationship="Self.FK_skole_korisnici" FromRole="korisnici" ToRole="skole" />
           <NavigationProperty Name="zaduzen_za" Relationship="Self.FK_zaduzen_za_korisnici" FromRole="korisnici" ToRole="zaduzen_za" />
         </EntityType>
-        <EntityType Name="pitanja">
+        <EntityType Name="pitanje">
           <Key>
             <PropertyRef Name="pitanje_id" />
           </Key>
@@ -531,11 +531,11 @@
           <Property Name="tekst_pitanja" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ispit_id" Type="Int32" Nullable="false" />
           <Property Name="kreirao_korisnik_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ispiti" Relationship="Self.FK_pitanja_ispiti" FromRole="pitanja" ToRole="ispiti" />
-          <NavigationProperty Name="korisnici" Relationship="Self.FK_pitanja_korisnici" FromRole="pitanja" ToRole="korisnici" />
-          <NavigationProperty Name="ponudeni_odgovori" Relationship="Self.FK_ponudeni_odgovori_pitanja" FromRole="pitanja" ToRole="ponudeni_odgovori" />
+          <NavigationProperty Name="ispit" Relationship="Self.FK_pitanja_ispiti" FromRole="pitanja" ToRole="ispiti" />
+          <NavigationProperty Name="korisnik" Relationship="Self.FK_pitanja_korisnici" FromRole="pitanja" ToRole="korisnici" />
+          <NavigationProperty Name="ponudeni_odgovor" Relationship="Self.FK_ponudeni_odgovori_pitanja" FromRole="pitanja" ToRole="ponudeni_odgovori" />
         </EntityType>
-        <EntityType Name="ponudeni_odgovori">
+        <EntityType Name="ponudeni_odgovor">
           <Key>
             <PropertyRef Name="ponudeni_odgovor_id" />
           </Key>
@@ -543,33 +543,33 @@
           <Property Name="tekst_odgovora" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tocan" Type="Byte" Nullable="false" />
           <Property Name="pitanje_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="dani_odgovori" Relationship="Self.FK_dani_odgovori_ponudeni_odgovori" FromRole="ponudeni_odgovori" ToRole="dani_odgovori" />
-          <NavigationProperty Name="pitanja" Relationship="Self.FK_ponudeni_odgovori_pitanja" FromRole="ponudeni_odgovori" ToRole="pitanja" />
+          <NavigationProperty Name="dan_odgovor" Relationship="Self.FK_dani_odgovori_ponudeni_odgovori" FromRole="ponudeni_odgovori" ToRole="dani_odgovori" />
+          <NavigationProperty Name="pitanje" Relationship="Self.FK_ponudeni_odgovori_pitanja" FromRole="ponudeni_odgovori" ToRole="pitanja" />
         </EntityType>
-        <EntityType Name="predmeti">
+        <EntityType Name="predmet">
           <Key>
             <PropertyRef Name="predmet_id" />
           </Key>
           <Property Name="predmet_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naziv_predmeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="cjelines" Relationship="Self.FK_cjeline_predmeti" FromRole="predmeti" ToRole="cjeline" />
+          <NavigationProperty Name="cjelina" Relationship="Self.FK_cjeline_predmeti" FromRole="predmeti" ToRole="cjeline" />
           <NavigationProperty Name="zaduzen_za" Relationship="Self.FK_zaduzen_za_predmeti" FromRole="predmeti" ToRole="zaduzen_za" />
-          <NavigationProperty Name="razredis" Relationship="Self.pripada" FromRole="predmeti" ToRole="razredi" />
+          <NavigationProperty Name="razred" Relationship="Self.pripada" FromRole="predmeti" ToRole="razredi" />
         </EntityType>
-        <EntityType Name="razredi">
+        <EntityType Name="razred">
           <Key>
             <PropertyRef Name="razred_id" />
           </Key>
           <Property Name="razred_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naziv_razreda" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="skola_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="cjelines" Relationship="Self.FK_cjeline_razredi" FromRole="razredi" ToRole="cjeline" />
-          <NavigationProperty Name="korisnicis" Relationship="Self.FK_korisnici_razredi" FromRole="razredi" ToRole="korisnici" />
-          <NavigationProperty Name="skole" Relationship="Self.FK_razredi_skole" FromRole="razredi" ToRole="skole" />
+          <NavigationProperty Name="cjelina" Relationship="Self.FK_cjeline_razredi" FromRole="razredi" ToRole="cjeline" />
+          <NavigationProperty Name="korisnik" Relationship="Self.FK_korisnici_razredi" FromRole="razredi" ToRole="korisnici" />
+          <NavigationProperty Name="skola" Relationship="Self.FK_razredi_skole" FromRole="razredi" ToRole="skole" />
           <NavigationProperty Name="zaduzen_za" Relationship="Self.FK_zaduzen_za_razredi" FromRole="razredi" ToRole="zaduzen_za" />
-          <NavigationProperty Name="predmetis" Relationship="Self.pripada" FromRole="razredi" ToRole="predmeti" />
+          <NavigationProperty Name="predmet" Relationship="Self.pripada" FromRole="razredi" ToRole="predmeti" />
         </EntityType>
-        <EntityType Name="skole">
+        <EntityType Name="skola">
           <Key>
             <PropertyRef Name="skola_id" />
           </Key>
@@ -577,16 +577,16 @@
           <Property Name="naziv_skole" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="adresa_skole" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="zaduzen_korisnik_admin" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="korisnici" Relationship="Self.FK_skole_korisnici" FromRole="skole" ToRole="korisnici" />
-          <NavigationProperty Name="razredis" Relationship="Self.FK_razredi_skole" FromRole="skole" ToRole="razredi" />
+          <NavigationProperty Name="korisnik" Relationship="Self.FK_skole_korisnici" FromRole="skole" ToRole="korisnici" />
+          <NavigationProperty Name="razred" Relationship="Self.FK_razredi_skole" FromRole="skole" ToRole="razredi" />
         </EntityType>
-        <EntityType Name="tipovi_korisnika">
+        <EntityType Name="tip_korisnika">
           <Key>
             <PropertyRef Name="tip_id" />
           </Key>
           <Property Name="tip_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naziv_tipa" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="korisnicis" Relationship="Self.FK_korisnici_tipovi_korisnika" FromRole="tipovi_korisnika" ToRole="korisnici" />
+          <NavigationProperty Name="korisnik" Relationship="Self.FK_korisnici_tipovi_korisnika" FromRole="tipovi_korisnika" ToRole="korisnici" />
         </EntityType>
         <EntityType Name="zaduzen_za">
           <Key>
@@ -597,13 +597,13 @@
           <Property Name="korisnik_id" Type="Int32" Nullable="false" />
           <Property Name="razred_id" Type="Int32" Nullable="false" />
           <Property Name="predmet_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="korisnici" Relationship="Self.FK_zaduzen_za_korisnici" FromRole="zaduzen_za" ToRole="korisnici" />
-          <NavigationProperty Name="predmeti" Relationship="Self.FK_zaduzen_za_predmeti" FromRole="zaduzen_za" ToRole="predmeti" />
-          <NavigationProperty Name="razredi" Relationship="Self.FK_zaduzen_za_razredi" FromRole="zaduzen_za" ToRole="razredi" />
+          <NavigationProperty Name="korisnik" Relationship="Self.FK_zaduzen_za_korisnici" FromRole="zaduzen_za" ToRole="korisnici" />
+          <NavigationProperty Name="predmet" Relationship="Self.FK_zaduzen_za_predmeti" FromRole="zaduzen_za" ToRole="predmeti" />
+          <NavigationProperty Name="razred" Relationship="Self.FK_zaduzen_za_razredi" FromRole="zaduzen_za" ToRole="razredi" />
         </EntityType>
         <Association Name="FK_cjeline_predmeti">
-          <End Role="predmeti" Type="Self.predmeti" Multiplicity="1" />
-          <End Role="cjeline" Type="Self.cjeline" Multiplicity="*" />
+          <End Role="predmeti" Type="Model.predmet" Multiplicity="1" />
+          <End Role="cjeline" Type="Model.cjelina" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="predmeti">
               <PropertyRef Name="predmet_id" />
@@ -614,8 +614,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_cjeline_razredi">
-          <End Role="razredi" Type="Self.razredi" Multiplicity="1" />
-          <End Role="cjeline" Type="Self.cjeline" Multiplicity="*" />
+          <End Role="razredi" Type="Model.razred" Multiplicity="1" />
+          <End Role="cjeline" Type="Model.cjelina" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="razredi">
               <PropertyRef Name="razred_id" />
@@ -626,8 +626,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ispiti_cjeline">
-          <End Role="cjeline" Type="Self.cjeline" Multiplicity="1" />
-          <End Role="ispiti" Type="Self.ispiti" Multiplicity="*" />
+          <End Role="cjeline" Type="Model.cjelina" Multiplicity="1" />
+          <End Role="ispiti" Type="Model.ispit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cjeline">
               <PropertyRef Name="cjelina_id" />
@@ -638,8 +638,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dani_odgovori_korisnici">
-          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
-          <End Role="dani_odgovori" Type="Self.dani_odgovori" Multiplicity="*" />
+          <End Role="korisnici" Type="Model.korisnik" Multiplicity="1" />
+          <End Role="dani_odgovori" Type="Model.dan_odgovor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="korisnici">
               <PropertyRef Name="korisnik_id" />
@@ -650,8 +650,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dani_odgovori_ponudeni_odgovori">
-          <End Role="ponudeni_odgovori" Type="Self.ponudeni_odgovori" Multiplicity="1" />
-          <End Role="dani_odgovori" Type="Self.dani_odgovori" Multiplicity="*" />
+          <End Role="ponudeni_odgovori" Type="Model.ponudeni_odgovor" Multiplicity="1" />
+          <End Role="dani_odgovori" Type="Model.dan_odgovor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ponudeni_odgovori">
               <PropertyRef Name="ponudeni_odgovor_id" />
@@ -662,7 +662,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_izabrao_ispiti">
-          <End Role="ispiti" Type="Self.ispiti" Multiplicity="1" />
+          <End Role="ispiti" Type="Model.ispit" Multiplicity="1" />
           <End Role="izabrao" Type="Self.izabrao" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ispiti">
@@ -674,8 +674,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_pitanja_ispiti">
-          <End Role="ispiti" Type="Self.ispiti" Multiplicity="1" />
-          <End Role="pitanja" Type="Self.pitanja" Multiplicity="*" />
+          <End Role="ispiti" Type="Model.ispit" Multiplicity="1" />
+          <End Role="pitanja" Type="Model.pitanje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ispiti">
               <PropertyRef Name="ispit_id" />
@@ -686,7 +686,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_izabrao_korisnici">
-          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="korisnici" Type="Model.korisnik" Multiplicity="1" />
           <End Role="izabrao" Type="Self.izabrao" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="korisnici">
@@ -698,8 +698,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_korisnici_razredi">
-          <End Role="razredi" Type="Self.razredi" Multiplicity="0..1" />
-          <End Role="korisnici" Type="Self.korisnici" Multiplicity="*" />
+          <End Role="razredi" Type="Model.razred" Multiplicity="0..1" />
+          <End Role="korisnici" Type="Model.korisnik" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="razredi">
               <PropertyRef Name="razred_id" />
@@ -710,8 +710,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_korisnici_tipovi_korisnika">
-          <End Role="tipovi_korisnika" Type="Self.tipovi_korisnika" Multiplicity="1" />
-          <End Role="korisnici" Type="Self.korisnici" Multiplicity="*" />
+          <End Role="tipovi_korisnika" Type="Model.tip_korisnika" Multiplicity="1" />
+          <End Role="korisnici" Type="Model.korisnik" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipovi_korisnika">
               <PropertyRef Name="tip_id" />
@@ -722,8 +722,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_pitanja_korisnici">
-          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
-          <End Role="pitanja" Type="Self.pitanja" Multiplicity="*" />
+          <End Role="korisnici" Type="Model.korisnik" Multiplicity="1" />
+          <End Role="pitanja" Type="Model.pitanje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="korisnici">
               <PropertyRef Name="korisnik_id" />
@@ -734,8 +734,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_skole_korisnici">
-          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
-          <End Role="skole" Type="Self.skole" Multiplicity="*" />
+          <End Role="korisnici" Type="Model.korisnik" Multiplicity="1" />
+          <End Role="skole" Type="Model.skola" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="korisnici">
               <PropertyRef Name="korisnik_id" />
@@ -746,7 +746,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_zaduzen_za_korisnici">
-          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="korisnici" Type="Model.korisnik" Multiplicity="1" />
           <End Role="zaduzen_za" Type="Self.zaduzen_za" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="korisnici">
@@ -758,8 +758,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ponudeni_odgovori_pitanja">
-          <End Role="pitanja" Type="Self.pitanja" Multiplicity="1" />
-          <End Role="ponudeni_odgovori" Type="Self.ponudeni_odgovori" Multiplicity="*" />
+          <End Role="pitanja" Type="Model.pitanje" Multiplicity="1" />
+          <End Role="ponudeni_odgovori" Type="Model.ponudeni_odgovor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="pitanja">
               <PropertyRef Name="pitanje_id" />
@@ -770,7 +770,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_zaduzen_za_predmeti">
-          <End Role="predmeti" Type="Self.predmeti" Multiplicity="1" />
+          <End Role="predmeti" Type="Model.predmet" Multiplicity="1" />
           <End Role="zaduzen_za" Type="Self.zaduzen_za" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="predmeti">
@@ -782,8 +782,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_razredi_skole">
-          <End Role="skole" Type="Self.skole" Multiplicity="1" />
-          <End Role="razredi" Type="Self.razredi" Multiplicity="*" />
+          <End Role="skole" Type="Model.skola" Multiplicity="1" />
+          <End Role="razredi" Type="Model.razred" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="skole">
               <PropertyRef Name="skola_id" />
@@ -794,7 +794,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_zaduzen_za_razredi">
-          <End Role="razredi" Type="Self.razredi" Multiplicity="1" />
+          <End Role="razredi" Type="Model.razred" Multiplicity="1" />
           <End Role="zaduzen_za" Type="Self.zaduzen_za" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="razredi">
@@ -806,36 +806,36 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="pripada">
-          <End Role="predmeti" Type="Self.predmeti" Multiplicity="*" />
-          <End Role="razredi" Type="Self.razredi" Multiplicity="*" />
+          <End Role="predmeti" Type="Model.predmet" Multiplicity="*" />
+          <End Role="razredi" Type="Model.razred" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="KvizZnanjaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="cjelines" EntityType="Self.cjeline" />
-          <EntitySet Name="dani_odgovori" EntityType="Self.dani_odgovori" />
-          <EntitySet Name="ispitis" EntityType="Self.ispiti" />
-          <EntitySet Name="izabraos" EntityType="Self.izabrao" />
-          <EntitySet Name="korisnicis" EntityType="Self.korisnici" />
-          <EntitySet Name="pitanjas" EntityType="Self.pitanja" />
-          <EntitySet Name="ponudeni_odgovori" EntityType="Self.ponudeni_odgovori" />
-          <EntitySet Name="predmetis" EntityType="Self.predmeti" />
-          <EntitySet Name="razredis" EntityType="Self.razredi" />
-          <EntitySet Name="skoles" EntityType="Self.skole" />
-          <EntitySet Name="tipovi_korisnika" EntityType="Self.tipovi_korisnika" />
+        <EntityContainer Name="KvizModelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cjeline" EntityType="Model.cjelina" />
+          <EntitySet Name="dani_odgovori" EntityType="Model.dan_odgovor" />
+          <EntitySet Name="ispiti" EntityType="Model.ispit" />
+          <EntitySet Name="izabrao" EntityType="Self.izabrao" />
+          <EntitySet Name="korisnici" EntityType="Model.korisnik" />
+          <EntitySet Name="pitanja" EntityType="Model.pitanje" />
+          <EntitySet Name="ponudeni_odgovori" EntityType="Model.ponudeni_odgovor" />
+          <EntitySet Name="predmeti" EntityType="Model.predmet" />
+          <EntitySet Name="razredi" EntityType="Model.razred" />
+          <EntitySet Name="skole" EntityType="Model.skola" />
+          <EntitySet Name="tipovi_korisnika" EntityType="Model.tip_korisnika" />
           <EntitySet Name="zaduzen_za" EntityType="Self.zaduzen_za" />
           <AssociationSet Name="FK_cjeline_predmeti" Association="Self.FK_cjeline_predmeti">
-            <End Role="predmeti" EntitySet="predmetis" />
-            <End Role="cjeline" EntitySet="cjelines" />
+            <End Role="predmeti" EntitySet="predmeti" />
+            <End Role="cjeline" EntitySet="cjeline" />
           </AssociationSet>
           <AssociationSet Name="FK_cjeline_razredi" Association="Self.FK_cjeline_razredi">
-            <End Role="razredi" EntitySet="razredis" />
-            <End Role="cjeline" EntitySet="cjelines" />
+            <End Role="razredi" EntitySet="razredi" />
+            <End Role="cjeline" EntitySet="cjeline" />
           </AssociationSet>
           <AssociationSet Name="FK_ispiti_cjeline" Association="Self.FK_ispiti_cjeline">
-            <End Role="cjeline" EntitySet="cjelines" />
-            <End Role="ispiti" EntitySet="ispitis" />
+            <End Role="cjeline" EntitySet="cjeline" />
+            <End Role="ispiti" EntitySet="ispiti" />
           </AssociationSet>
           <AssociationSet Name="FK_dani_odgovori_korisnici" Association="Self.FK_dani_odgovori_korisnici">
-            <End Role="korisnici" EntitySet="korisnicis" />
+            <End Role="korisnici" EntitySet="korisnici" />
             <End Role="dani_odgovori" EntitySet="dani_odgovori" />
           </AssociationSet>
           <AssociationSet Name="FK_dani_odgovori_ponudeni_odgovori" Association="Self.FK_dani_odgovori_ponudeni_odgovori">
@@ -843,56 +843,56 @@
             <End Role="dani_odgovori" EntitySet="dani_odgovori" />
           </AssociationSet>
           <AssociationSet Name="FK_izabrao_ispiti" Association="Self.FK_izabrao_ispiti">
-            <End Role="ispiti" EntitySet="ispitis" />
-            <End Role="izabrao" EntitySet="izabraos" />
+            <End Role="ispiti" EntitySet="ispiti" />
+            <End Role="izabrao" EntitySet="izabrao" />
           </AssociationSet>
           <AssociationSet Name="FK_pitanja_ispiti" Association="Self.FK_pitanja_ispiti">
-            <End Role="ispiti" EntitySet="ispitis" />
-            <End Role="pitanja" EntitySet="pitanjas" />
+            <End Role="ispiti" EntitySet="ispiti" />
+            <End Role="pitanja" EntitySet="pitanja" />
           </AssociationSet>
           <AssociationSet Name="FK_izabrao_korisnici" Association="Self.FK_izabrao_korisnici">
-            <End Role="korisnici" EntitySet="korisnicis" />
-            <End Role="izabrao" EntitySet="izabraos" />
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="izabrao" EntitySet="izabrao" />
           </AssociationSet>
           <AssociationSet Name="FK_korisnici_razredi" Association="Self.FK_korisnici_razredi">
-            <End Role="razredi" EntitySet="razredis" />
-            <End Role="korisnici" EntitySet="korisnicis" />
+            <End Role="razredi" EntitySet="razredi" />
+            <End Role="korisnici" EntitySet="korisnici" />
           </AssociationSet>
           <AssociationSet Name="FK_korisnici_tipovi_korisnika" Association="Self.FK_korisnici_tipovi_korisnika">
             <End Role="tipovi_korisnika" EntitySet="tipovi_korisnika" />
-            <End Role="korisnici" EntitySet="korisnicis" />
+            <End Role="korisnici" EntitySet="korisnici" />
           </AssociationSet>
           <AssociationSet Name="FK_pitanja_korisnici" Association="Self.FK_pitanja_korisnici">
-            <End Role="korisnici" EntitySet="korisnicis" />
-            <End Role="pitanja" EntitySet="pitanjas" />
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="pitanja" EntitySet="pitanja" />
           </AssociationSet>
           <AssociationSet Name="FK_skole_korisnici" Association="Self.FK_skole_korisnici">
-            <End Role="korisnici" EntitySet="korisnicis" />
-            <End Role="skole" EntitySet="skoles" />
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="skole" EntitySet="skole" />
           </AssociationSet>
           <AssociationSet Name="FK_zaduzen_za_korisnici" Association="Self.FK_zaduzen_za_korisnici">
-            <End Role="korisnici" EntitySet="korisnicis" />
+            <End Role="korisnici" EntitySet="korisnici" />
             <End Role="zaduzen_za" EntitySet="zaduzen_za" />
           </AssociationSet>
           <AssociationSet Name="FK_ponudeni_odgovori_pitanja" Association="Self.FK_ponudeni_odgovori_pitanja">
-            <End Role="pitanja" EntitySet="pitanjas" />
+            <End Role="pitanja" EntitySet="pitanja" />
             <End Role="ponudeni_odgovori" EntitySet="ponudeni_odgovori" />
           </AssociationSet>
           <AssociationSet Name="FK_zaduzen_za_predmeti" Association="Self.FK_zaduzen_za_predmeti">
-            <End Role="predmeti" EntitySet="predmetis" />
+            <End Role="predmeti" EntitySet="predmeti" />
             <End Role="zaduzen_za" EntitySet="zaduzen_za" />
           </AssociationSet>
           <AssociationSet Name="FK_razredi_skole" Association="Self.FK_razredi_skole">
-            <End Role="skole" EntitySet="skoles" />
-            <End Role="razredi" EntitySet="razredis" />
+            <End Role="skole" EntitySet="skole" />
+            <End Role="razredi" EntitySet="razredi" />
           </AssociationSet>
           <AssociationSet Name="FK_zaduzen_za_razredi" Association="Self.FK_zaduzen_za_razredi">
-            <End Role="razredi" EntitySet="razredis" />
+            <End Role="razredi" EntitySet="razredi" />
             <End Role="zaduzen_za" EntitySet="zaduzen_za" />
           </AssociationSet>
           <AssociationSet Name="pripada" Association="Self.pripada">
-            <End Role="predmeti" EntitySet="predmetis" />
-            <End Role="razredi" EntitySet="razredis" />
+            <End Role="predmeti" EntitySet="predmeti" />
+            <End Role="razredi" EntitySet="razredi" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -900,9 +900,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="KvizZnanjaEntities">
-          <EntitySetMapping Name="cjelines">
-            <EntityTypeMapping TypeName="Model.cjeline">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="KvizModelEntities">
+          <EntitySetMapping Name="cjeline">
+            <EntityTypeMapping TypeName="Model.cjelina">
               <MappingFragment StoreEntitySet="cjeline">
                 <ScalarProperty Name="cjelina_id" ColumnName="cjelina_id" />
                 <ScalarProperty Name="naziv_cjeline" ColumnName="naziv_cjeline" />
@@ -912,7 +912,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="dani_odgovori">
-            <EntityTypeMapping TypeName="Model.dani_odgovori">
+            <EntityTypeMapping TypeName="Model.dan_odgovor">
               <MappingFragment StoreEntitySet="dani_odgovori">
                 <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
                 <ScalarProperty Name="ponudeni_odgovor_id" ColumnName="ponudeni_odgovor_id" />
@@ -920,8 +920,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ispitis">
-            <EntityTypeMapping TypeName="Model.ispiti">
+          <EntitySetMapping Name="ispiti">
+            <EntityTypeMapping TypeName="Model.ispit">
               <MappingFragment StoreEntitySet="ispiti">
                 <ScalarProperty Name="ispit_id" ColumnName="ispit_id" />
                 <ScalarProperty Name="naziv_ispita" ColumnName="naziv_ispita" />
@@ -929,7 +929,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="izabraos">
+          <EntitySetMapping Name="izabrao">
             <EntityTypeMapping TypeName="Model.izabrao">
               <MappingFragment StoreEntitySet="izabrao">
                 <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
@@ -940,8 +940,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="korisnicis">
-            <EntityTypeMapping TypeName="Model.korisnici">
+          <EntitySetMapping Name="korisnici">
+            <EntityTypeMapping TypeName="Model.korisnik">
               <MappingFragment StoreEntitySet="korisnici">
                 <ScalarProperty Name="korisnik_id" ColumnName="korisnik_id" />
                 <ScalarProperty Name="korisnicko_ime" ColumnName="korisnicko_ime" />
@@ -957,8 +957,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="pitanjas">
-            <EntityTypeMapping TypeName="Model.pitanja">
+          <EntitySetMapping Name="pitanja">
+            <EntityTypeMapping TypeName="Model.pitanje">
               <MappingFragment StoreEntitySet="pitanja">
                 <ScalarProperty Name="pitanje_id" ColumnName="pitanje_id" />
                 <ScalarProperty Name="tekst_pitanja" ColumnName="tekst_pitanja" />
@@ -968,7 +968,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ponudeni_odgovori">
-            <EntityTypeMapping TypeName="Model.ponudeni_odgovori">
+            <EntityTypeMapping TypeName="Model.ponudeni_odgovor">
               <MappingFragment StoreEntitySet="ponudeni_odgovori">
                 <ScalarProperty Name="ponudeni_odgovor_id" ColumnName="ponudeni_odgovor_id" />
                 <ScalarProperty Name="tekst_odgovora" ColumnName="tekst_odgovora" />
@@ -977,16 +977,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="predmetis">
-            <EntityTypeMapping TypeName="Model.predmeti">
+          <EntitySetMapping Name="predmeti">
+            <EntityTypeMapping TypeName="Model.predmet">
               <MappingFragment StoreEntitySet="predmeti">
                 <ScalarProperty Name="predmet_id" ColumnName="predmet_id" />
                 <ScalarProperty Name="naziv_predmeta" ColumnName="naziv_predmeta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="razredis">
-            <EntityTypeMapping TypeName="Model.razredi">
+          <EntitySetMapping Name="razredi">
+            <EntityTypeMapping TypeName="Model.razred">
               <MappingFragment StoreEntitySet="razredi">
                 <ScalarProperty Name="razred_id" ColumnName="razred_id" />
                 <ScalarProperty Name="naziv_razreda" ColumnName="naziv_razreda" />
@@ -994,8 +994,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="skoles">
-            <EntityTypeMapping TypeName="Model.skole">
+          <EntitySetMapping Name="skole">
+            <EntityTypeMapping TypeName="Model.skola">
               <MappingFragment StoreEntitySet="skole">
                 <ScalarProperty Name="skola_id" ColumnName="skola_id" />
                 <ScalarProperty Name="naziv_skole" ColumnName="naziv_skole" />
@@ -1005,7 +1005,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tipovi_korisnika">
-            <EntityTypeMapping TypeName="Model.tipovi_korisnika">
+            <EntityTypeMapping TypeName="Model.tip_korisnika">
               <MappingFragment StoreEntitySet="tipovi_korisnika">
                 <ScalarProperty Name="tip_id" ColumnName="tip_id" />
                 <ScalarProperty Name="naziv_tipa" ColumnName="naziv_tipa" />
@@ -1043,7 +1043,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

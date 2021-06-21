@@ -7,28 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projekt.Enitities
+namespace Projekt.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ispiti
+    public partial class pitanje
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ispiti()
+        public pitanje()
         {
-            this.izabraos = new HashSet<izabrao>();
-            this.pitanjas = new HashSet<pitanja>();
+            this.ponudeni_odgovor = new HashSet<ponudeni_odgovor>();
         }
     
+        public int pitanje_id { get; set; }
+        public string tekst_pitanja { get; set; }
         public int ispit_id { get; set; }
-        public string naziv_ispita { get; set; }
-        public int cjelina_id { get; set; }
+        public int kreirao_korisnik_id { get; set; }
     
-        public virtual cjeline cjeline { get; set; }
+        public virtual ispit ispit { get; set; }
+        public virtual korisnik korisnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<izabrao> izabraos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<pitanja> pitanjas { get; set; }
+        public virtual ICollection<ponudeni_odgovor> ponudeni_odgovor { get; set; }
     }
 }

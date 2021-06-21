@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projekt.Enitities
+namespace Projekt.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -18,8 +18,8 @@ namespace Projekt.Enitities
         public int razred_id { get; set; }
         public int predmet_id { get; set; }
     
-        public virtual korisnici korisnici { get; set; }
-        public virtual predmeti predmeti { get; set; }
-        public virtual razredi razredi { get; set; }
+        public virtual korisnik korisnik { get; set; }
+        public virtual predmet predmet { get; set; }
+        public virtual razred razred { get; set; }
     }
 }

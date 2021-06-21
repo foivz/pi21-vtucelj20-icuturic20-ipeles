@@ -7,29 +7,34 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projekt.Enitities
+namespace Projekt.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class predmeti
+    public partial class razred
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public predmeti()
+        public razred()
         {
-            this.cjelines = new HashSet<cjeline>();
+            this.cjelina = new HashSet<cjelina>();
+            this.korisnik = new HashSet<korisnik>();
             this.zaduzen_za = new HashSet<zaduzen_za>();
-            this.razredis = new HashSet<razredi>();
+            this.predmet = new HashSet<predmet>();
         }
     
-        public int predmet_id { get; set; }
-        public string naziv_predmeta { get; set; }
+        public int razred_id { get; set; }
+        public string naziv_razreda { get; set; }
+        public int skola_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cjeline> cjelines { get; set; }
+        public virtual ICollection<cjelina> cjelina { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<korisnik> korisnik { get; set; }
+        public virtual skola skola { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<zaduzen_za> zaduzen_za { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<razredi> razredis { get; set; }
+        public virtual ICollection<predmet> predmet { get; set; }
     }
 }
