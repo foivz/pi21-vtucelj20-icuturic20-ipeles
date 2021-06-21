@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b53402c0d681424eacf4054c68c7a156" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.cjeline" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.dani_odgovori" Width="1.5" PointX="15" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ispiti" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.izabrao" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.korisnici" Width="1.5" PointX="11.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.pitanja" Width="1.5" PointX="10.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ponudeni_odgovori" Width="1.5" PointX="12.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.predmeti" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.razredi" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.skole" Width="1.5" PointX="13.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tipovi_korisnika" Width="1.5" PointX="9" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.zaduzen_za" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_cjeline_predmeti" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_cjeline_razredi" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ispiti_cjeline" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dani_odgovori_korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dani_odgovori_ponudeni_odgovori" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_izabrao_ispiti" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_pitanja_ispiti" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_izabrao_korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_korisnici_razredi" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_korisnici_tipovi_korisnika" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_pitanja_korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_skole_korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_zaduzen_za_korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ponudeni_odgovori_pitanja" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_zaduzen_za_predmeti" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_razredi_skole" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_zaduzen_za_razredi" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.pripada" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
