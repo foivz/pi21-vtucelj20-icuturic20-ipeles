@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,16 @@ namespace Projekt
 {
     public partial class RjesavanjeKvizaForm : Form
     {
-        public RjesavanjeKvizaForm()
+        korisnik ulogiraniKorisnik;
+        ispit odabranKviz;
+        public RjesavanjeKvizaForm(korisnik logirani, ispit odabrani)
         {
             InitializeComponent();
+            ulogiraniKorisnik = logirani;
+            odabranKviz = odabrani;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void RjesavanjeKvizaForm_Load(object sender, EventArgs e)
         {
 
         }

@@ -125,6 +125,7 @@ namespace Projekt
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrijavaForm";
             this.Text = "Prijava";
+            this.Load += new System.EventHandler(this.PrijavaForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

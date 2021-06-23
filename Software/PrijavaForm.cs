@@ -70,9 +70,14 @@ namespace Projekt
                             select k;
                 logiraniKorisnik = query.Single();
             }
-
+            
             GlavnaPocetnaForm glavnaPocetnaForm = new GlavnaPocetnaForm(logiraniKorisnik);
             glavnaPocetnaForm.ShowDialog();
+        }
+
+        private void PrijavaForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
