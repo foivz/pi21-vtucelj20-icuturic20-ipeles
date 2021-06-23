@@ -105,6 +105,7 @@ namespace Projekt
             this.razredComboBox.Name = "razredComboBox";
             this.razredComboBox.Size = new System.Drawing.Size(292, 21);
             this.razredComboBox.TabIndex = 5;
+            this.razredComboBox.SelectedIndexChanged += new System.EventHandler(this.razredComboBox_SelectedIndexChanged);
             // 
             // predmetComboBox
             // 
@@ -113,6 +114,7 @@ namespace Projekt
             this.predmetComboBox.Name = "predmetComboBox";
             this.predmetComboBox.Size = new System.Drawing.Size(292, 21);
             this.predmetComboBox.TabIndex = 6;
+            this.predmetComboBox.SelectedIndexChanged += new System.EventHandler(this.predmetComboBox_SelectedIndexChanged);
             // 
             // cjelinaComboBox
             // 
@@ -121,6 +123,7 @@ namespace Projekt
             this.cjelinaComboBox.Name = "cjelinaComboBox";
             this.cjelinaComboBox.Size = new System.Drawing.Size(292, 21);
             this.cjelinaComboBox.TabIndex = 7;
+            this.cjelinaComboBox.SelectedIndexChanged += new System.EventHandler(this.cjelinaComboBox_SelectedIndexChanged);
             // 
             // kvizComboBox
             // 
@@ -132,16 +135,16 @@ namespace Projekt
             // 
             // kreniButton
             // 
-            this.kreniButton.BackColor = System.Drawing.Color.LightSlateGray;
+            this.kreniButton.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.kreniButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.kreniButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.kreniButton.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.kreniButton.Location = new System.Drawing.Point(134, 275);
+            this.kreniButton.Location = new System.Drawing.Point(170, 272);
             this.kreniButton.Name = "kreniButton";
-            this.kreniButton.Size = new System.Drawing.Size(203, 46);
+            this.kreniButton.Size = new System.Drawing.Size(177, 50);
             this.kreniButton.TabIndex = 9;
             this.kreniButton.Text = "Kreni";
             this.kreniButton.UseVisualStyleBackColor = false;
+            this.kreniButton.Click += new System.EventHandler(this.kreniButton_Click);
             // 
             // UcenikPocetnaForm
             // 

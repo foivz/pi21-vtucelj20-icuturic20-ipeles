@@ -22,7 +22,24 @@ namespace Projekt
 
         private void GlavnaPocetnaForm_Load(object sender, EventArgs e)
         {
+            
+            switch (ulogiraniKorisnik.tip_id)
+            {
+                case 2:
+                    pregledajNastavnikeButton.Visible = false;
+                    dodajSkoluButton.Visible = false;
+                    break;
 
+                case 3:
+                    dodajSkoluButton.Visible = false;
+                    break;
+
+                case 4:
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }
