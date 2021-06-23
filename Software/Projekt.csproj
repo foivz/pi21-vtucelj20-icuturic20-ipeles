@@ -181,7 +181,6 @@
     <EmbeddedResource Include="UcenikPocetnaForm.resx">
       <DependentUpon>UcenikPocetnaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <EntityDeploy Include="Entities\KvizModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KvizModel.Designer.cs</LastGenOutput>
