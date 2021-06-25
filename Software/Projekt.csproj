@@ -130,6 +130,13 @@
     <Compile Include="PrijavaForm.Designer.cs">
       <DependentUpon>PrijavaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrijavaKrivogPitanjaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrijavaKrivogPitanjaForm.Designer.cs">
+      <DependentUpon>PrijavaKrivogPitanjaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repozitorij\RepozitorijKviz.cs" />
     <Compile Include="RjesavanjeKvizaForm.cs">
       <SubType>Form</SubType>
     </Compile>
