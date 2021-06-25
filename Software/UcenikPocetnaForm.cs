@@ -15,7 +15,7 @@ namespace Projekt
     {
         korisnik ulogiraniKorisnik;
         ispit odabranIspit;
-        int dohvacenIdSkole;
+        int dohvacenIdSkole = -1;
         int dohvacenIdPredmeta;
         int odabranIdRazreda;
         int dohvacenIdCjeline;
@@ -25,9 +25,11 @@ namespace Projekt
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public UcenikPocetnaForm(korisnik logirani, int idSkole)
         {
-
+            ulogiraniKorisnik = logirani;
+            dohvacenIdSkole = idSkole;
+            InitializeComponent();
         }
 
         private void UcenikPocetnaForm_Load(object sender, EventArgs e)
@@ -36,11 +38,14 @@ namespace Projekt
             using (var context = new KvizModelEntities())
             {
                 //dohvaćanje razreda koji pripadaju istoj školi kao i prijavljeni korisnik/učenik
-                var query = from k in context.korisnici
-                            from r in context.razredi
-                            where k.korisnik_id == ulogiraniKorisnik.korisnik_id && r.razred_id == ulogiraniKorisnik.razred_id
-                            select r.skola_id;
-                dohvacenIdSkole = query.Single();
+                if(dohvacenIdSkole == -1)
+                {
+                    var query = from k in context.korisnici
+                                from r in context.razredi
+                                where k.korisnik_id == ulogiraniKorisnik.korisnik_id && r.razred_id == ulogiraniKorisnik.razred_id
+                                select r.skola_id;
+                    dohvacenIdSkole = query.Single();
+                }
 
                 var query1 = from r in context.razredi
                              where r.skola_id == dohvacenIdSkole
