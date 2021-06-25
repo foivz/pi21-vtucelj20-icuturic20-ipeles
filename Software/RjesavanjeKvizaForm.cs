@@ -67,7 +67,7 @@ namespace Projekt
                     switch(MessageBox.Show($"Vaš rezultat je: {rezultatZaIspis}", "Ukupan rezultat", MessageBoxButtons.OK))
                     {
                         case DialogResult.OK:
-                            RepozitorijKviz.UpdateVremenaZavrsetkaKviza(ulogiraniKorisnik, odabranKviz);
+                            //RepozitorijKviz.UpdateVremenaZavrsetkaKviza(ulogiraniKorisnik, odabranKviz);
                             break;
                     }
                     //treba dodati slanje pdfa

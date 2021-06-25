@@ -136,6 +136,8 @@
     <Compile Include="PrijavaKrivogPitanjaForm.Designer.cs">
       <DependentUpon>PrijavaKrivogPitanjaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repozitorij\Generator.cs" />
+    <Compile Include="Repozitorij\korisnikUcenikView.cs" />
     <Compile Include="Repozitorij\RepozitorijKviz.cs" />
     <Compile Include="RjesavanjeKvizaForm.cs">
       <SubType>Form</SubType>

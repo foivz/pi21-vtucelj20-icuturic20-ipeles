@@ -47,6 +47,7 @@ namespace Projekt
             this.rjesavajKvizButton.TabIndex = 0;
             this.rjesavajKvizButton.Text = "Rješavaj kviz";
             this.rjesavajKvizButton.UseVisualStyleBackColor = true;
+            this.rjesavajKvizButton.Click += new System.EventHandler(this.rjesavajKvizButton_Click);
             // 
             // pregledajPitanjaButton
             // 
@@ -77,6 +78,7 @@ namespace Projekt
             this.pregledajUcenikeButton.TabIndex = 3;
             this.pregledajUcenikeButton.Text = "Pregledaj učenike";
             this.pregledajUcenikeButton.UseVisualStyleBackColor = true;
+            this.pregledajUcenikeButton.Click += new System.EventHandler(this.pregledajUcenikeButton_Click);
             // 
             // pregledajNastavnikeButton
             // 
