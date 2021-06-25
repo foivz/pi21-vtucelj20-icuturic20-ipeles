@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Projekt.Repozitorij;
+using System.Net.Mail;
+using System.Net;
 
 namespace Projekt
 {
@@ -73,9 +75,23 @@ namespace Projekt
                 int brojObuhvacenihRedova = RepozitorijKviz.DodajNovogUcenika(noviUcenik);
                 if(brojObuhvacenihRedova > 0)
                 {
-                    MessageBox.Show("Učenik je dodan!", "Uspješno dodavanje");
+                    //slanje maila učeniku sa njegovim pristupnim podacima
+                    SmtpClient klijent = new SmtpClient("smtp.gmail.com", 587);
+                    NetworkCredential cred = new NetworkCredential("tinatucelj@gmail.com", "MsVtan7!!");
+                    MailMessage msg = new MailMessage();
+                    msg.From = new MailAddress("tinatucelj@gmail.com");
+                    msg.To.Add(noviUcenik.mail);
+                    msg.Subject = "Pristupni podaci za Kvisko";
+                    msg.Body = $"Poštovani/a {noviUcenik.ime} {noviUcenik.prezime},\n\n" +
+                        $"pristupni podaci za aplikaciju Kvisko su: \n" +
+                        $"     Korisničko ime: {noviUcenik.korisnicko_ime}\n" +
+                        $"     Lozinka: {noviUcenik.lozinka}\n\n" +
+                        $"Sretno s kvizovima :)";
+                    klijent.Credentials = cred;
+                    klijent.EnableSsl = true;
+                    klijent.Send(msg);
 
-                    //treba dodati slanje maila novo dodanom učeniku, mail sadrži korisničko ime i lozinku
+                    MessageBox.Show("Učenik je dodan!", "Uspješno dodavanje");
 
                     this.Close();
 
