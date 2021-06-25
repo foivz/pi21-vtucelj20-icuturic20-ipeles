@@ -52,19 +52,26 @@ namespace Projekt
                 MessageBox.Show("Niste odabrali nijedan odgovor!");
 
             } else {
-
+                
                 RepozitorijKviz.SpremiDanOdgovorUBazu(ulogiraniKorisnik, odabranOdgovor);
                 OcistiRadioButtone();
 
                 if (brojacPitanja == -1)
                 {
-                    //update datum_vrijeme_do u tablici 'izabrao' da znamo kad je kviz završio
-                    RepozitorijKviz.UpdateVremenaZavrsetkaKviza(ulogiraniKorisnik, odabranKviz);
+                    //update datum_vrijeme_do u tablici 'izabrao' da znamo kad je kviz završio -->ovo ne radi???????
+                    //RepozitorijKviz.UpdateVremenaZavrsetkaKviza(ulogiraniKorisnik, odabranKviz);
+                    
 
                     //došli smo do kraja --> ispiši rezultat i pošalji pdf učeniku i zaduženom nastavniku
                     int rezultatZaIspis = RepozitorijKviz.DohvatiOstvareniRezultat(ulogiraniKorisnik, odabranKviz);
-                    MessageBox.Show($"Vaš rezultat je: {rezultatZaIspis}");
-
+                    switch(MessageBox.Show($"Vaš rezultat je: {rezultatZaIspis}", "Ukupan rezultat", MessageBoxButtons.OK))
+                    {
+                        case DialogResult.OK:
+                            RepozitorijKviz.UpdateVremenaZavrsetkaKviza(ulogiraniKorisnik, odabranKviz);
+                            break;
+                    }
+                    //treba dodati slanje pdfa
+                    this.Close();
                 }
                 else
                 {
@@ -125,6 +132,23 @@ namespace Projekt
             radioButton2.Checked = false;
             radioButton3.Checked = false;
             radioButton4.Checked = false;
+        }
+
+        private void RjesavanjeKvizaForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (brojacPitanja != -1)
+            {
+                switch(MessageBox.Show("Još niste završili sa cijelim kvizom. Da li stvarno želite izaći?", "Želite li odustati?", MessageBoxButtons.YesNo))
+                {
+                    case DialogResult.Yes:
+                        e.Cancel = false;
+                        break;
+
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                }
+            }
         }
     }
 }

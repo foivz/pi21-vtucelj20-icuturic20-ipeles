@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,8 +54,9 @@ namespace Projekt.Repozitorij
             dan_odgovor zaUbacivanjeUBazu = KreirajDanOdgovorZaUnosUBazu(ulogiraniKorisnik, odabranOdgovor);
             using (var context = new KvizModelEntities())
             {
-                context.dani_odgovori.Add(zaUbacivanjeUBazu);
+                context.dani_odgovori.Add(zaUbacivanjeUBazu);               
                 context.SaveChanges();
+ 
             }
         }
 
@@ -62,8 +64,8 @@ namespace Projekt.Repozitorij
         {
             using (var context = new KvizModelEntities())
             {
-                izabrao zaUpdate = context.izabrao.ToList().Last(iz => iz.korisnik_id == ulogiraniKorisnik.korisnik_id && iz.ispit_id == odabranKviz.ispit_id);
-                zaUpdate.datum_vrijeme_do = DateTime.UtcNow;
+                izabrao zaUpdate = context.izabrao.ToList().Last(i => i.korisnik_id == ulogiraniKorisnik.korisnik_id && i.ispit_id == odabranKviz.ispit_id);
+                zaUpdate.datum_vrijeme_do = DateTime.Now;
                 context.SaveChanges();
             }
         }
@@ -87,7 +89,7 @@ namespace Projekt.Repozitorij
             dan_odgovor zaUbacivanjeUBazu = new dan_odgovor();
             zaUbacivanjeUBazu.korisnik_id = ulogiraniKorisnik.korisnik_id;
             zaUbacivanjeUBazu.ponudeni_odgovor_id = odabranOdgovor.ponudeni_odgovor_id;
-            zaUbacivanjeUBazu.datum_vrijeme = DateTime.UtcNow;
+            zaUbacivanjeUBazu.datum_vrijeme = DateTime.Now;
 
             return zaUbacivanjeUBazu;
         }
@@ -97,7 +99,7 @@ namespace Projekt.Repozitorij
             izabrao zaUnosUBazu = new izabrao();
             zaUnosUBazu.korisnik_id = ulogiraniKorisnik.korisnik_id;
             zaUnosUBazu.ispit_id = odabranKviz.ispit_id;
-            zaUnosUBazu.datum_vrijeme_od = DateTime.UtcNow;
+            zaUnosUBazu.datum_vrijeme_od = DateTime.Now;
             zaUnosUBazu.datum_vrijeme_do = null;
             zaUnosUBazu.rezultat = 0;
 

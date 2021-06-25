@@ -182,6 +182,7 @@ namespace Projekt
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RjesavanjeKvizaForm";
             this.Text = "Kvisko";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RjesavanjeKvizaForm_FormClosing);
             this.Load += new System.EventHandler(this.RjesavanjeKvizaForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
