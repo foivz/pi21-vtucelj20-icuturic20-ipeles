@@ -74,6 +74,9 @@ namespace Projekt
                 if(brojObuhvacenihRedova > 0)
                 {
                     MessageBox.Show("Učenik je dodan!", "Uspješno dodavanje");
+
+                    //treba dodati slanje maila novo dodanom učeniku, mail sadrži korisničko ime i lozinku
+
                     this.Close();
 
                 } else
