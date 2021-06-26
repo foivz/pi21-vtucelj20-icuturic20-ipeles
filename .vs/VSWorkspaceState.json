@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Software"
+    "\\Software",
+    "\\Software\\Repozitorij"
   ],
-  "SelectedNode": "\\Software\\DodajUcenikaForm.cs",
+  "SelectedNode": "\\Software\\Repozitorij\\RepozitorijKviz.cs",
   "PreviewInSolutionExplorer": false
 }
