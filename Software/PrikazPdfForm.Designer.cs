@@ -38,7 +38,6 @@ namespace Projekt
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource7 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrikazPdfForm));
-            this.pdfReportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dan_odgovorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.izabraoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pitanjeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -46,6 +45,8 @@ namespace Projekt
             this.cjelinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ispitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SlanjeRezultataViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pdfReportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.okButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dan_odgovorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.izabraoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pitanjeBindingSource)).BeginInit();
@@ -54,39 +55,6 @@ namespace Projekt
             ((System.ComponentModel.ISupportInitialize)(this.ispitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SlanjeRezultataViewBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pdfReportViewer
-            // 
-            this.pdfReportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pdfReportViewer.DocumentMapWidth = 94;
-            reportDataSource1.Name = "DaniOdgovori";
-            reportDataSource1.Value = this.dan_odgovorBindingSource;
-            reportDataSource2.Name = "IzabraoDS";
-            reportDataSource2.Value = this.izabraoBindingSource;
-            reportDataSource3.Name = "PitanjeDS";
-            reportDataSource3.Value = this.pitanjeBindingSource;
-            reportDataSource4.Name = "KorisnikDS";
-            reportDataSource4.Value = this.korisnikBindingSource;
-            reportDataSource5.Name = "CjelinaDS";
-            reportDataSource5.Value = this.cjelinaBindingSource;
-            reportDataSource6.Name = "IspitDS";
-            reportDataSource6.Value = this.ispitBindingSource;
-            reportDataSource7.Name = "PitanjeOdgovor";
-            reportDataSource7.Value = this.SlanjeRezultataViewBindingSource;
-            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource1);
-            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource2);
-            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource3);
-            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource4);
-            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource5);
-            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource6);
-            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource7);
-            this.pdfReportViewer.LocalReport.ReportEmbeddedResource = "Projekt.PdfSPitanjimaIRezultatom.rdlc";
-            this.pdfReportViewer.Location = new System.Drawing.Point(0, 0);
-            this.pdfReportViewer.Name = "pdfReportViewer";
-            this.pdfReportViewer.ServerReport.BearerToken = null;
-            this.pdfReportViewer.Size = new System.Drawing.Size(740, 402);
-            this.pdfReportViewer.TabIndex = 0;
-            this.pdfReportViewer.Load += new System.EventHandler(this.pdfReportViewer_Load);
             // 
             // dan_odgovorBindingSource
             // 
@@ -116,11 +84,57 @@ namespace Projekt
             // 
             this.SlanjeRezultataViewBindingSource.DataSource = typeof(Projekt.Repozitorij.SlanjeRezultataView);
             // 
+            // pdfReportViewer
+            // 
+            this.pdfReportViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pdfReportViewer.DocumentMapWidth = 94;
+            reportDataSource1.Name = "DaniOdgovori";
+            reportDataSource1.Value = this.dan_odgovorBindingSource;
+            reportDataSource2.Name = "IzabraoDS";
+            reportDataSource2.Value = this.izabraoBindingSource;
+            reportDataSource3.Name = "PitanjeDS";
+            reportDataSource3.Value = this.pitanjeBindingSource;
+            reportDataSource4.Name = "KorisnikDS";
+            reportDataSource4.Value = this.korisnikBindingSource;
+            reportDataSource5.Name = "CjelinaDS";
+            reportDataSource5.Value = this.cjelinaBindingSource;
+            reportDataSource6.Name = "IspitDS";
+            reportDataSource6.Value = this.ispitBindingSource;
+            reportDataSource7.Name = "PitanjeOdgovor";
+            reportDataSource7.Value = this.SlanjeRezultataViewBindingSource;
+            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource1);
+            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource2);
+            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource3);
+            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource4);
+            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource5);
+            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource6);
+            this.pdfReportViewer.LocalReport.DataSources.Add(reportDataSource7);
+            this.pdfReportViewer.LocalReport.ReportEmbeddedResource = "Projekt.PdfSPitanjimaIRezultatom.rdlc";
+            this.pdfReportViewer.Location = new System.Drawing.Point(0, 0);
+            this.pdfReportViewer.Name = "pdfReportViewer";
+            this.pdfReportViewer.ServerReport.BearerToken = null;
+            this.pdfReportViewer.Size = new System.Drawing.Size(739, 359);
+            this.pdfReportViewer.TabIndex = 0;
+            this.pdfReportViewer.Load += new System.EventHandler(this.pdfReportViewer_Load);
+            // 
+            // okButton
+            // 
+            this.okButton.Location = new System.Drawing.Point(602, 367);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(115, 27);
+            this.okButton.TabIndex = 1;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            // 
             // PrikazPdfForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 402);
+            this.Controls.Add(this.okButton);
             this.Controls.Add(this.pdfReportViewer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrikazPdfForm";
@@ -147,5 +161,6 @@ namespace Projekt
         private System.Windows.Forms.BindingSource cjelinaBindingSource;
         private System.Windows.Forms.BindingSource ispitBindingSource;
         private System.Windows.Forms.BindingSource SlanjeRezultataViewBindingSource;
+        private System.Windows.Forms.Button okButton;
     }
 }

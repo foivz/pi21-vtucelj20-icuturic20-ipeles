@@ -1,4 +1,5 @@
-﻿using Projekt.Entities;
+﻿using Microsoft.Reporting.WinForms;
+using Projekt.Entities;
 using Projekt.Repozitorij;
 using System;
 using System.Collections.Generic;
@@ -65,6 +66,7 @@ namespace Projekt
                     //došli smo do kraja --> ispiši rezultat i pošalji pdf učeniku i zaduženom nastavniku
                     int rezultatZaIspis = RepozitorijKviz.DohvatiOstvareniRezultat(ulogiraniKorisnik, odabranKviz);
                     //MessageBox.Show($"Vaš rezultat je: {rezultatZaIspis}/{svaPitanja.Count}", "Ukupan rezultat");
+
 
                     PrikazPdfForm prikazPdfForm = new PrikazPdfForm(ulogiraniKorisnik, odabranKviz);
                     prikazPdfForm.ShowDialog();
