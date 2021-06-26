@@ -64,13 +64,11 @@ namespace Projekt
 
                     //došli smo do kraja --> ispiši rezultat i pošalji pdf učeniku i zaduženom nastavniku
                     int rezultatZaIspis = RepozitorijKviz.DohvatiOstvareniRezultat(ulogiraniKorisnik, odabranKviz);
-                    switch(MessageBox.Show($"Vaš rezultat je: {rezultatZaIspis}", "Ukupan rezultat", MessageBoxButtons.OK))
-                    {
-                        case DialogResult.OK:
-                            //RepozitorijKviz.UpdateVremenaZavrsetkaKviza(ulogiraniKorisnik, odabranKviz);
-                            break;
-                    }
-                    //treba dodati slanje pdfa
+                    //MessageBox.Show($"Vaš rezultat je: {rezultatZaIspis}/{svaPitanja.Count}", "Ukupan rezultat");
+
+                    PrikazPdfForm prikazPdfForm = new PrikazPdfForm(ulogiraniKorisnik, odabranKviz);
+                    prikazPdfForm.ShowDialog();
+
                     this.Close();
                 }
                 else
