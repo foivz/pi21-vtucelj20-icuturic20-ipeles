@@ -297,6 +297,288 @@ namespace Projekt.Repozitorij
             return provjera; 
         }
 
+        public static List<string> DohvatiRazredeNastavnika(korisnik ulogiraniKorisnik)
+        {
+            List<string> sviRazredi;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from z in context.zaduzen_za
+                            from r in context.razredi
+                            where z.korisnik_id == ulogiraniKorisnik.korisnik_id && z.razred_id == r.razred_id
+                            select r.naziv_razreda;
+                sviRazredi = query.Distinct().ToList();
+            } 
+
+                return sviRazredi;
+        }
+
+        public static List<string> DohvatiSvePredmeteRazreda(korisnik ulogiraniKorisnik, string odabranRazred)
+        {
+            List<string> sviPredmeti;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from z in context.zaduzen_za
+                            from r in context.razredi
+                            from p in r.predmet
+                            where z.korisnik_id == ulogiraniKorisnik.korisnik_id && r.naziv_razreda == odabranRazred && z.razred_id == r.razred_id
+                            select p.naziv_predmeta;
+                sviPredmeti = query.Distinct().ToList();     
+            }
+            return sviPredmeti;
+        }
+
+        public static List<string> DohvatiSvePredmeteRazredaSkole(string odabranRazred, string odabaranaSkola)
+        {
+            List<string> sviPredmeti;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from s in context.skole
+                            from r in context.razredi
+                            from p in r.predmet
+                            where s.naziv_skole == odabaranaSkola && r.naziv_razreda == odabranRazred && r.skola_id == s.skola_id
+                            select p.naziv_predmeta;
+                sviPredmeti = query.Distinct().ToList();
+            }
+            return sviPredmeti;
+        }
+
+        public static List<string> DohvatiCjelinePredmeta(korisnik ulogiraniKorisnik, string odabranRazred, string odabranPredmet)
+        {
+            List<string> sveCjeline;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from z in context.zaduzen_za
+                            from r in context.razredi
+                            from p in context.predmeti
+                            from c in context.cjeline
+                            where z.korisnik_id == ulogiraniKorisnik.korisnik_id && r.naziv_razreda == odabranRazred && z.razred_id == r.razred_id && p.naziv_predmeta == odabranPredmet && c.predmet_id == p.predmet_id && c.razred_id == r.razred_id
+                            select c.naziv_cjeline;
+                sveCjeline = query.ToList();
+            }
+
+            return sveCjeline;
+        }
+
+        public static List<string> DohvatiCjelinePredmetaRazredaSkole(string odabranRazred, string odabranPredmet, string odabranaSkola)
+        {
+            List<string> sveCjeline;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from s in context.skole
+                            from r in context.razredi
+                            from p in r.predmet
+                            from c in context.cjeline
+                            where s.naziv_skole == odabranaSkola && r.naziv_razreda == odabranRazred && r.skola_id == s.skola_id && p.naziv_predmeta == odabranPredmet && c.predmet_id == p.predmet_id && c.razred_id == r.razred_id
+                            select c.naziv_cjeline;
+                sveCjeline = query.ToList();
+            }
+
+            return sveCjeline;
+        }
+
+        public static List<string> DohvatiSveSkole()
+        {
+            List<string> sveSkole;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from s in context.skole
+                            select s.naziv_skole;
+                sveSkole = query.ToList();
+            }
+
+            return sveSkole;
+        }
+
+        public static List<string> DohvatiSveSkoleAdmina(korisnik ulogiraniKorisnik)
+        {
+            List<string> sveSkole;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from s in context.skole
+                            where s.zaduzen_korisnik_admin == ulogiraniKorisnik.korisnik_id
+                            select s.naziv_skole;
+                sveSkole = query.ToList();
+            }
+
+            return sveSkole;
+        }
+
+        public static List<string> DohvatiIspite(string odabranRazred, string odabranPredmet, string odabranaCjelina)
+        {
+            List<string> sviIspiti;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from i in context.ispiti
+                            from c in context.cjeline
+                            from p in context.predmeti
+                            from r in context.razredi
+                            where r.naziv_razreda == odabranRazred && c.razred_id == r.razred_id && p.naziv_predmeta == odabranPredmet && c.predmet_id == p.predmet_id && c.naziv_cjeline == odabranaCjelina && i.cjelina_id == c.cjelina_id
+                            select i.naziv_ispita;
+                sviIspiti = query.ToList();
+            }
+
+            return sviIspiti;
+        }
+
+        public static List<string> DohvatiSveRazredeSkole(string odabranaSkola)
+        {
+            List<string> sviRazredi;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from r in context.razredi
+                            from s in context.skole
+                            where s.naziv_skole == odabranaSkola && r.skola_id == s.skola_id
+                            select r.naziv_razreda;
+                sviRazredi = query.ToList();
+            }
+
+            return sviRazredi;
+        }
+
+        public static List<pitanjeOdgovoriView> DohvatiPitanjaOdgovoreZaPregled(ispit odabran)
+        {
+            List<pitanjeOdgovoriView> svaPitanjaSOdgovorima = new List<pitanjeOdgovoriView>();
+            List<ponudeni_odgovor> odgovori;
+            List<pitanjeView> popisPitanja;
+            ponudeni_odgovor tocan;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from p in context.pitanja
+                            where p.ispit_id == odabran.ispit_id
+                            select new pitanjeView
+                            {
+                                pitanje_id = p.pitanje_id,
+                                pitanje_tekst = p.tekst_pitanja
+                            };
+                popisPitanja = query.ToList();
+            }
+
+            foreach (var pitanje in popisPitanja)
+            {
+                odgovori = null;
+                tocan = null;
+
+                using (var context = new KvizModelEntities())
+                {
+                    var query1 = from po in context.ponudeni_odgovori
+                                 where po.pitanje_id == pitanje.pitanje_id
+                                 select po;
+                    odgovori = query1.ToList();
+
+                }
+
+                using (var context = new KvizModelEntities())
+                {
+                    var query2 = from po in context.ponudeni_odgovori
+                                 where po.pitanje_id == pitanje.pitanje_id && po.tocan == 1
+                                 select po;
+                    tocan = query2.Single();
+                }
+
+                pitanjeOdgovoriView novi = new pitanjeOdgovoriView
+                {
+                    pitanje_id = pitanje.pitanje_id,
+                    tekst_pitanja = pitanje.pitanje_tekst,
+                    odg1_id = odgovori[0].ponudeni_odgovor_id,
+                    odg1_tekst = odgovori[0].tekst_odgovora,
+                    odg2_id = odgovori[1].ponudeni_odgovor_id,
+                    odg2_tekst = odgovori[1].tekst_odgovora,
+                    odg3_id = odgovori[2].ponudeni_odgovor_id,
+                    odg3_tekst = odgovori[2].tekst_odgovora,
+                    odg4_id = odgovori[3].ponudeni_odgovor_id,
+                    odg4_tekst = odgovori[3].tekst_odgovora,
+                    odgTocan_id = tocan.ponudeni_odgovor_id,
+                    odgTocan_tekst = tocan.tekst_odgovora
+                 };
+                    
+                svaPitanjaSOdgovorima.Add(novi);               
+            }
+            return svaPitanjaSOdgovorima;
+        }
+
+        public static ispit DohvatiOdabranKvizNastavnik(korisnik ulogiraniKorisnik, string odabranRazred, string odabranPredmet, string odabranaCjelina, string OdabranKviz)
+        {
+            ispit odabran;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from z in context.zaduzen_za
+                            from r in context.razredi
+                            from p in r.predmet
+                            from c in context.cjeline
+                            from i in context.ispiti
+                            where z.korisnik_id == ulogiraniKorisnik.korisnik_id && z.razred_id == r.razred_id && r.naziv_razreda == odabranRazred && p.naziv_predmeta == odabranPredmet && c.predmet_id == p.predmet_id && c.razred_id == r.razred_id && i.cjelina_id == c.cjelina_id && c.naziv_cjeline == odabranaCjelina && i.naziv_ispita == OdabranKviz
+                            select i;
+                odabran = query.Single();
+            }
+
+            return odabran;
+        }
+
+        public static ispit DohvatiOdabranKviz(string odabranaSkola, string odabranRazred, string odabranPredmet, string odabranaCjelina, string OdabranKviz)
+        {
+            ispit odabran;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from s in context.skole
+                            from r in context.razredi
+                            from p in r.predmet
+                            from c in context.cjeline
+                            from i in context.ispiti
+                            where s.naziv_skole == odabranaSkola && r.skola_id == s.skola_id && r.naziv_razreda == odabranRazred && p.naziv_predmeta == odabranPredmet && c.predmet_id == p.predmet_id && c.razred_id == r.razred_id && c.naziv_cjeline == odabranaCjelina && i.cjelina_id == c.cjelina_id && i.naziv_ispita == OdabranKviz
+                            select i;
+                odabran = query.Single();
+            }
+
+            return odabran;
+        }
+
+        public static int IzbrisiPitanjeIOdgovore(pitanjeOdgovoriView odabranRedak)
+        {
+            int provjera = 1;
+
+            using (var context = new KvizModelEntities())
+            {
+                var query = from po in context.ponudeni_odgovori
+                            where po.pitanje_id == odabranRedak.pitanje_id
+                            select po;
+                List<ponudeni_odgovor> zaBrisanjeOdgovori = query.ToList();
+                foreach (var ponOdg in zaBrisanjeOdgovori)
+                {
+                    context.ponudeni_odgovori.Remove(ponOdg);
+                    if(context.SaveChanges() == 0)
+                    {
+                        provjera = 0;
+                    }
+                    
+                }
+
+                var query1 = from p in context.pitanja
+                             where p.pitanje_id == odabranRedak.pitanje_id
+                             select p;
+                pitanje zaBrisanjePitanje = query1.Single();
+                context.pitanja.Remove(zaBrisanjePitanje);
+                if(context.SaveChanges() == 0)
+                {
+                    provjera = 0;
+                }
+                
+            }
+
+            return provjera;
+        }
+
         private static korisnik KreirajKorisnikaZaUnosUBazu(korisnikUcenikView ucenik, int idRazreda)
         {
             korisnik zaUnosUBazu = new korisnik();
