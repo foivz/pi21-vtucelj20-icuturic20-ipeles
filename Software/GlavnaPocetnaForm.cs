@@ -75,5 +75,11 @@ namespace Projekt
             PopisUcenikaForm popisUcenikaForm = new PopisUcenikaForm(ulogiraniKorisnik);
             popisUcenikaForm.ShowDialog();
         }
+
+        private void pregledajPitanjaButton_Click(object sender, EventArgs e)
+        {
+            IzborKvizaZaPregledForm izborKvizaZaPregledForm = new IzborKvizaZaPregledForm(ulogiraniKorisnik);
+            izborKvizaZaPregledForm.ShowDialog();
+        }
     }
 }

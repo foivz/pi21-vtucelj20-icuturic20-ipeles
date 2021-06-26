@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DodajPitanjeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajPitanjeForm.Designer.cs">
+      <DependentUpon>DodajPitanjeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodajUcenikaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,12 @@
     <Compile Include="GlavnaPocetnaForm.Designer.cs">
       <DependentUpon>GlavnaPocetnaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IzborKvizaZaPregledForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IzborKvizaZaPregledForm.Designer.cs">
+      <DependentUpon>IzborKvizaZaPregledForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PregledPitanjaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +150,8 @@
     </Compile>
     <Compile Include="Repozitorij\Generator.cs" />
     <Compile Include="Repozitorij\korisnikUcenikView.cs" />
+    <Compile Include="Repozitorij\pitanjeOdgovoriView.cs" />
+    <Compile Include="Repozitorij\pitanjeView.cs" />
     <Compile Include="Repozitorij\RepozitorijKviz.cs" />
     <Compile Include="RjesavanjeKvizaForm.cs">
       <SubType>Form</SubType>
@@ -159,11 +173,17 @@
     <Compile Include="UcenikPocetnaForm.Designer.cs">
       <DependentUpon>UcenikPocetnaForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DodajPitanjeForm.resx">
+      <DependentUpon>DodajPitanjeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DodajUcenikaForm.resx">
       <DependentUpon>DodajUcenikaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GlavnaPocetnaForm.resx">
       <DependentUpon>GlavnaPocetnaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IzborKvizaZaPregledForm.resx">
+      <DependentUpon>IzborKvizaZaPregledForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopisUcenikaForm.resx">
       <DependentUpon>PopisUcenikaForm.cs</DependentUpon>

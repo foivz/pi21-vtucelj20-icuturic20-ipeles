@@ -58,6 +58,7 @@ namespace Projekt
             this.pregledajPitanjaButton.TabIndex = 1;
             this.pregledajPitanjaButton.Text = "Pregledaj pitanja";
             this.pregledajPitanjaButton.UseVisualStyleBackColor = true;
+            this.pregledajPitanjaButton.Click += new System.EventHandler(this.pregledajPitanjaButton_Click);
             // 
             // statistikaButton
             // 
