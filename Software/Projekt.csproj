@@ -304,8 +304,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RepozitorijLib\GeneratorLib.csproj">
-      <Project>{2973e4c0-31de-4160-b410-a9b374be6eba}</Project>
+    <ProjectReference Include="..\GeneratorLib\GeneratorLib.csproj">
+      <Project>{2a85db55-eaf7-40ef-b4ec-a20c7e8abef4}</Project>
       <Name>GeneratorLib</Name>
     </ProjectReference>
   </ItemGroup>
