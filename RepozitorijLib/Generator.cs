@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projekt.Repozitorij
+namespace GeneratorLib
 {
     public static class Generator
     {
@@ -17,10 +17,11 @@ namespace Projekt.Repozitorij
             korIme += ime.Substring(0, 1);
             korIme += prezime;
 
-            if(korIme.Length > maxDuljina)
+            if (korIme.Length > maxDuljina)
             {
                 korIme = korIme.Substring(0, maxDuljina);
-            } else if(korIme.Length < minDuljina)
+            }
+            else if (korIme.Length < minDuljina)
             {
                 int brojZnakovaKojiFale = minDuljina - korIme.Length;
                 Random r = new Random();
@@ -42,11 +43,12 @@ namespace Projekt.Repozitorij
             Random r = new Random();
             for (int i = 0; i < 8; i++)
             {
-                if(i % 3 == 0)
+                if (i % 3 == 0)
                 {
                     lozinka += r.Next(0, 9);
 
-                } else
+                }
+                else
                 {
                     lozinka += slova[r.Next(0, duljinaSlova - 1)];
                 }

@@ -172,7 +172,6 @@
     <Compile Include="PrikazPdfForm.Designer.cs">
       <DependentUpon>PrikazPdfForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repozitorij\Generator.cs" />
     <Compile Include="Repozitorij\korisnikUcenikView.cs" />
     <Compile Include="Repozitorij\pitanjeOdgovoriView.cs" />
     <Compile Include="Repozitorij\pitanjeView.cs" />
@@ -303,6 +302,12 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RepozitorijLib\GeneratorLib.csproj">
+      <Project>{2973e4c0-31de-4160-b410-a9b374be6eba}</Project>
+      <Name>GeneratorLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
