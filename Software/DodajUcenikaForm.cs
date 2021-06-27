@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Projekt.Repozitorij;
 using System.Net.Mail;
 using System.Net;
+using GeneratorLib;
 
 namespace Projekt
 {

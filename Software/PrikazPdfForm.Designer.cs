@@ -121,11 +121,12 @@ namespace Projekt
             // 
             // okButton
             // 
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.Location = new System.Drawing.Point(602, 367);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(115, 27);
             this.okButton.TabIndex = 1;
-            this.okButton.Text = "OK";
+            this.okButton.Text = "Završi";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
