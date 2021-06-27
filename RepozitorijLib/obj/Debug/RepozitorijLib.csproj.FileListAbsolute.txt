@@ -1,6 +1,0 @@
-C:\Users\Valentina\source\repos\pi21-vtucelj20-icuturic20-ipeles\RepozitorijLib\bin\Debug\RepozitorijLib.dll
-C:\Users\Valentina\source\repos\pi21-vtucelj20-icuturic20-ipeles\RepozitorijLib\bin\Debug\RepozitorijLib.pdb
-C:\Users\Valentina\source\repos\pi21-vtucelj20-icuturic20-ipeles\RepozitorijLib\obj\Debug\RepozitorijLib.csproj.AssemblyReference.cache
-C:\Users\Valentina\source\repos\pi21-vtucelj20-icuturic20-ipeles\RepozitorijLib\obj\Debug\RepozitorijLib.csproj.CoreCompileInputs.cache
-C:\Users\Valentina\source\repos\pi21-vtucelj20-icuturic20-ipeles\RepozitorijLib\obj\Debug\RepozitorijLib.dll
-C:\Users\Valentina\source\repos\pi21-vtucelj20-icuturic20-ipeles\RepozitorijLib\obj\Debug\RepozitorijLib.pdb
