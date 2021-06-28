@@ -31,7 +31,24 @@ namespace Projekt
 
         private void DodajUcenikaForm_Load(object sender, EventArgs e)
         {
-            skolaComboBox.DataSource = RepozitorijKviz.DohvatiSkoleUlogiranogNastavnika(ulogiraniKorisnik);
+            switch (ulogiraniKorisnik.tip_id)
+            {
+                case 2:
+                    skolaComboBox.DataSource = RepozitorijKviz.DohvatiSkoleUlogiranogNastavnika(ulogiraniKorisnik);
+                    break;
+
+                case 3:
+                    skolaComboBox.DataSource = RepozitorijKviz.DohvatiSveSkoleAdmina(ulogiraniKorisnik);
+                    break;
+
+                case 4:
+                    skolaComboBox.DataSource = RepozitorijKviz.DohvatiSveSkole();
+                    break;
+
+                default:
+                    break;
+            }
+            
         }
 
         private void skolaComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,26 +94,14 @@ namespace Projekt
                 if(brojObuhvacenihRedova > 0)
                 {
                     //slanje maila učeniku sa njegovim pristupnim podacima
-                    SmtpClient klijent = new SmtpClient("smtp.gmail.com", 587);
-                    NetworkCredential cred = new NetworkCredential("tinatucelj@gmail.com", "MsVtan7!!");
-                    MailMessage msg = new MailMessage();
-                    msg.From = new MailAddress("tinatucelj@gmail.com");
-                    msg.To.Add(noviUcenik.mail);
-                    msg.Subject = "Pristupni podaci za Kvisko";
-                    msg.Body = $"Poštovani/a {noviUcenik.ime} {noviUcenik.prezime},\n\n" +
-                        $"pristupni podaci za aplikaciju Kvisko su: \n" +
-                        $"     Korisničko ime: {noviUcenik.korisnicko_ime}\n" +
-                        $"     Lozinka: {noviUcenik.lozinka}\n\n" +
-                        $"Sretno s kvizovima :)";
-                    klijent.Credentials = cred;
-                    klijent.EnableSsl = true;
-                    klijent.Send(msg);
+                    PosaljiMail(noviUcenik);
 
                     MessageBox.Show("Učenik je dodan!", "Uspješno dodavanje");
 
                     this.Close();
 
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Učenik nije dodan!", "Poruka o grešci");
                 }
@@ -105,6 +110,24 @@ namespace Projekt
             {
                 MessageBox.Show("Neki podaci nisu popunjeni ili korisničko ime već postoji u bazi!", "Poruka o grešci");
             }
+        }
+
+        private static void PosaljiMail(korisnikUcenikView noviUcenik)
+        {
+            SmtpClient klijent = new SmtpClient("smtp.gmail.com", 587);
+            NetworkCredential cred = new NetworkCredential("tinatucelj@gmail.com", "MsVtan7!!");
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress("tinatucelj@gmail.com");
+            msg.To.Add(noviUcenik.mail);
+            msg.Subject = "Pristupni podaci za Kvisko";
+            msg.Body = $"Poštovani/a {noviUcenik.ime} {noviUcenik.prezime},\n\n" +
+                $"pristupni podaci za aplikaciju Kvisko su: \n" +
+                $"     Korisničko ime: {noviUcenik.korisnicko_ime}\n" +
+                $"     Lozinka: {noviUcenik.lozinka}\n\n" +
+                $"Sretno s kvizovima :)";
+            klijent.Credentials = cred;
+            klijent.EnableSsl = true;
+            klijent.Send(msg);
         }
 
         private bool ProvjeriUnos()

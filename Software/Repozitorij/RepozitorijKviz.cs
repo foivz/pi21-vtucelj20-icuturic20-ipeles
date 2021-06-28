@@ -177,7 +177,7 @@ namespace Projekt.Repozitorij
         public static List<korisnikUcenikView> SviUceniciUlogiranogSuperadmina()
         {
             List<korisnikUcenikView> sviUcenici;
-
+            
             using (var context = new KvizModelEntities())
             {
                 var query = from k in context.korisnici
