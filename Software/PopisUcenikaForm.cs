@@ -123,5 +123,10 @@ namespace Projekt
         {
             this.Close();
         }
+
+        private void PopisUcenikaForm_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            Help.ShowHelp(this, "Pomoc.chm", HelpNavigator.Topic, "pregledavanjeUcenika.htm");
+        }
     }
 }

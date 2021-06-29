@@ -38,6 +38,7 @@ namespace Projekt
             this.cjelinaLabel = new System.Windows.Forms.Label();
             this.ispitLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPitanjaOdgovori)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,6 +163,7 @@ namespace Projekt
             this.Name = "PregledPitanjaForm";
             this.Text = "Pregled pitanja";
             this.Load += new System.EventHandler(this.PregledPitanjaForm_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.PregledPitanjaForm_HelpRequested);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPitanjaOdgovori)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -178,5 +180,6 @@ namespace Projekt
         private System.Windows.Forms.Label cjelinaLabel;
         private System.Windows.Forms.Label ispitLabel;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

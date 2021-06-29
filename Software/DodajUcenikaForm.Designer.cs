@@ -53,6 +53,7 @@ namespace Projekt
             this.razredComboBox = new System.Windows.Forms.ComboBox();
             this.skolaComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // label1
@@ -297,6 +298,7 @@ namespace Projekt
             this.Name = "DodajUcenikaForm";
             this.Text = "Dodaj novog učenika";
             this.Load += new System.EventHandler(this.DodajUcenikaForm_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.DodajUcenikaForm_HelpRequested);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,5 +329,6 @@ namespace Projekt
         private System.Windows.Forms.ComboBox razredComboBox;
         private System.Windows.Forms.ComboBox skolaComboBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

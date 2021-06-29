@@ -146,5 +146,10 @@ namespace Projekt
                 }
             }
         }
+
+        private void RjesavanjeKvizaForm_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            Help.ShowHelp(this, "Pomoc.chm", HelpNavigator.Topic, "rjesavanjeKviza.htm");
+        }
     }
 }

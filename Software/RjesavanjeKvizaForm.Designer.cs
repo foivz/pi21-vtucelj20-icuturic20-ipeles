@@ -38,6 +38,7 @@ namespace Projekt
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,6 +170,11 @@ namespace Projekt
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\Valentina\\source\\repos\\pi21-vtucelj20-icuturic20-ipeles\\Software\\bin\\Deb" +
+    "ug\\Pomoc.chm";
+            // 
             // RjesavanjeKvizaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,11 +185,18 @@ namespace Projekt
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.prijaviKrivoPitanjeButton);
             this.Controls.Add(this.sljedecePitanjeButton);
+            this.HelpButton = true;
+            this.helpProvider1.SetHelpKeyword(this, "");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RjesavanjeKvizaForm";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Kvisko";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RjesavanjeKvizaForm_FormClosing);
             this.Load += new System.EventHandler(this.RjesavanjeKvizaForm_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.RjesavanjeKvizaForm_HelpRequested);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -199,6 +212,7 @@ namespace Projekt
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
 

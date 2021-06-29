@@ -74,5 +74,10 @@ namespace Projekt
                 MessageBox.Show("Pitanje i odgovori nisu obrisani!", "Poruka o grešci");
             }
         }
+
+        private void PregledPitanjaForm_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            Help.ShowHelp(this,"Pomoc.chm", HelpNavigator.Topic, "pregledavanjePitanja.htm");
+        }
     }
 }

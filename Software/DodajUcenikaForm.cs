@@ -145,5 +145,10 @@ namespace Projekt
 
             return dobarUnos;
         }
+
+        private void DodajUcenikaForm_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            Help.ShowHelp(this, "Pomoc.chm", HelpNavigator.Topic, "dodavanjeUcenika.htm");
+        }
     }
 }

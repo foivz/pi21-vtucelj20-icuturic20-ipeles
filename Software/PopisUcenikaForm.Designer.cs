@@ -35,6 +35,7 @@ namespace Projekt
             this.dodajUcenikaButton = new System.Windows.Forms.Button();
             this.izbrisiUcenikaButton = new System.Windows.Forms.Button();
             this.povratakNaPocetnuButton = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPopisUcenika)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,6 +103,11 @@ namespace Projekt
             this.povratakNaPocetnuButton.UseVisualStyleBackColor = false;
             this.povratakNaPocetnuButton.Click += new System.EventHandler(this.povratakNaPocetnuButton_Click);
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\Valentina\\source\\repos\\pi21-vtucelj20-icuturic20-ipeles\\Software\\bin\\Deb" +
+    "ug\\Pomoc.chm";
+            // 
             // PopisUcenikaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,6 +124,7 @@ namespace Projekt
             this.Name = "PopisUcenikaForm";
             this.Text = "Popis učenika";
             this.Load += new System.EventHandler(this.PopisUcenikaForm_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.PopisUcenikaForm_HelpRequested);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPopisUcenika)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -131,5 +138,6 @@ namespace Projekt
         private System.Windows.Forms.Button dodajUcenikaButton;
         private System.Windows.Forms.Button izbrisiUcenikaButton;
         private System.Windows.Forms.Button povratakNaPocetnuButton;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
