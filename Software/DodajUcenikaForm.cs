@@ -148,7 +148,7 @@ namespace Projekt
 
         private void DodajUcenikaForm_HelpRequested(object sender, HelpEventArgs hlpevent)
         {
-            Help.ShowHelp(this, "Pomoc.chm", HelpNavigator.Topic, "dodavanjeUcenika.htm");
+            Help.ShowHelp(this, "C:\\Users\\Valentina\\source\\repos\\pi21-vtucelj20-icuturic20-ipeles\\Software\\Repozitorij\\Pomoc.chm", HelpNavigator.Topic, "dodavanjeUcenika.htm");
         }
     }
 }

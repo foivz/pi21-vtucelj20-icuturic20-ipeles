@@ -264,6 +264,10 @@ namespace Projekt
             this.label3.TabIndex = 21;
             this.label3.Text = "Škola:";
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "";
+            // 
             // DodajUcenikaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
