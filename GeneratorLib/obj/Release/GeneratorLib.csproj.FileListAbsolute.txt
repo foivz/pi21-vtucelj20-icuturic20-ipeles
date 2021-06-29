@@ -1,0 +1,6 @@
+C:\Users\Valentina\Source\Repos\pi21-vtucelj20-icuturic20-ipeles\GeneratorLib\bin\Release\GeneratorLib.dll
+C:\Users\Valentina\Source\Repos\pi21-vtucelj20-icuturic20-ipeles\GeneratorLib\bin\Release\GeneratorLib.pdb
+C:\Users\Valentina\Source\Repos\pi21-vtucelj20-icuturic20-ipeles\GeneratorLib\obj\Release\GeneratorLib.csproj.AssemblyReference.cache
+C:\Users\Valentina\Source\Repos\pi21-vtucelj20-icuturic20-ipeles\GeneratorLib\obj\Release\GeneratorLib.csproj.CoreCompileInputs.cache
+C:\Users\Valentina\Source\Repos\pi21-vtucelj20-icuturic20-ipeles\GeneratorLib\obj\Release\GeneratorLib.dll
+C:\Users\Valentina\Source\Repos\pi21-vtucelj20-icuturic20-ipeles\GeneratorLib\obj\Release\GeneratorLib.pdb
